@@ -1,0 +1,23 @@
+{
+  "name": "webdriverio-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "author": "Juan Moncada",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^8.0.6",
+    "webdriverio": "^8.0.6"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.0.6",
+    "@wdio/mocha-framework": "^8.0.6",
+    "@wdio/spec-reporter": "^8.0.6",
+    "chromedriver": "^108.0.0",
+    "wdio-chromedriver-service": "^8.0.1"
+  }
+}
