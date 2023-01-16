@@ -12,8 +12,5 @@ describe('Drag and Drop', () => {
         await browser.url('https://crossbrowsertesting.github.io/drag-and-drop.html')
         await internetPage.dragDragableToDropable()
         await expect(await internetPage.droppableParagraph).toHaveText('Dropped!')
-    })
-
-
-   
+    })   
 })

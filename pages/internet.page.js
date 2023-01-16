@@ -39,6 +39,25 @@ class Internet {
     get droppable() { return $('#droppable') }
     get droppableParagraph() { return $('#droppable p') }
 
+    get dropdownMenu() { return $('#dropdown') }
+    get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)')}
+    get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)')}
+
+    async clickDropdownMenu(){
+        await this.dropdownMenu.waitForDisplayed()
+        await this.dropdownMenu.click()
+    }
+
+    async clickDropdownMenuOption1(){
+        await this.dropdownMenuOption1.waitForDisplayed()
+        await this.dropdownMenuOption1.click()
+    }
+
+    async clickDropdownMenuOption2(){
+        await this.dropdownMenuOption2.waitForDisplayed()
+        await this.dropdownMenuOption2.click()
+    }
+
     async dragDragableToDropable() {
         await this.draggable.waitForDisplayed()
         await this.draggable.dragAndDrop(await this.droppable)
