@@ -26,10 +26,31 @@ class Internet {
 
     get hereLink() { return $('.example a') }
 
-    get iframeBody() { return $('#tinymce')}
-    get iframe() { return $('#mce_0_ifr')}
+    get iframeBody() { return $('#tinymce') }
+    get iframe() { return $('#mce_0_ifr') }
 
-    async sendTextToBody(text){
+    get columnA() { return $('#column-a') }
+    get columnB() { return $('#column-b') }
+
+    get columnAHeader() { return $('#column-a header') }
+    get columnBHeader() { return $('#column-b header') }
+
+    get draggable() { return $('#draggable') }
+    get droppable() { return $('#droppable') }
+    get droppableParagraph() { return $('#droppable p') }
+
+    async dragDragableToDropable() {
+        await this.draggable.waitForDisplayed()
+        await this.draggable.dragAndDrop(await this.droppable)
+    }
+
+    async dragColumnAToColumnB() {
+        await this.columnA.waitForDisplayed()
+        await this.columnA.dragAndDrop(await this.columnB)
+        //await this.columnA.dragAndDrop({ x: 400, y: 200 })
+    }
+
+    async sendTextToBody(text) {
         await this.iframeBody.waitForDisplayed()
         await this.iframeBody.clearValue()
         await this.iframeBody.click()
