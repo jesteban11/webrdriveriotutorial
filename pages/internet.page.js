@@ -43,6 +43,17 @@ class Internet {
     get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)')}
     get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)')}
 
+    javascriptAlertButton(index) { return $(`.example li:nth-child(${index}) button`)}
+
+    /**
+     * Click the specified javascript alert button
+     * @param {*} index the index of the element
+     */
+    async clickJavascriptAlertButton(index){
+        await this.javascriptAlertButton(index).waitForDisplayed()
+        await this.javascriptAlertButton(index).click()
+    }
+
     async clickDropdownMenu(){
         await this.dropdownMenu.waitForDisplayed()
         await this.dropdownMenu.click()
