@@ -52,12 +52,18 @@ class Internet {
     get exampleButton() { return $('.example button') }
     deleteButton(index) { return $(`#elements button:nth-child(${index})`) }
 
-    async clickExampleButton(){
+    pageButton() { return $('#checkbox-example button') }
+    async clickPageButton() {
+        await this.pageButton().waitForDisplayed()
+        await this.pageButton().click()
+    }
+
+    async clickExampleButton() {
         await this.exampleButton.waitForDisplayed()
         await this.exampleButton.click()
     }
 
-    async clickDeleteButton(index){
+    async clickDeleteButton(index) {
         await this.deleteButton(index).waitForDisplayed()
         await this.deleteButton(index).click()
     }
