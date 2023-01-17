@@ -49,6 +49,19 @@ class Internet {
     get enableButton() { return $('#input-example button') }
     get inputField() { return $('#input-example input') }
 
+    get exampleButton() { return $('.example button') }
+    deleteButton(index) { return $(`#elements button:nth-child(${index})`) }
+
+    async clickExampleButton(){
+        await this.exampleButton.waitForDisplayed()
+        await this.exampleButton.click()
+    }
+
+    async clickDeleteButton(index){
+        await this.deleteButton(index).waitForDisplayed()
+        await this.deleteButton(index).click()
+    }
+
     async clickEnableButton() {
         await this.enableButton.waitForDisplayed()
         await this.enableButton.click()
