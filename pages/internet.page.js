@@ -40,31 +40,40 @@ class Internet {
     get droppableParagraph() { return $('#droppable p') }
 
     get dropdownMenu() { return $('#dropdown') }
-    get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)')}
-    get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)')}
+    get dropdownMenuOption1() { return $('#dropdown option:nth-child(2)') }
+    get dropdownMenuOption2() { return $('#dropdown option:nth-child(3)') }
 
-    javascriptAlertButton(index) { return $(`.example li:nth-child(${index}) button`)}
+    javascriptAlertButton(index) { return $(`.example li:nth-child(${index}) button`) }
+
+
+    get enableButton() { return $('#input-example button') }
+    get inputField() { return $('#input-example input') }
+
+    async clickEnableButton() {
+        await this.enableButton.waitForDisplayed()
+        await this.enableButton.click()
+    }
 
     /**
      * Click the specified javascript alert button
      * @param {*} index the index of the element
      */
-    async clickJavascriptAlertButton(index){
+    async clickJavascriptAlertButton(index) {
         await this.javascriptAlertButton(index).waitForDisplayed()
         await this.javascriptAlertButton(index).click()
     }
 
-    async clickDropdownMenu(){
+    async clickDropdownMenu() {
         await this.dropdownMenu.waitForDisplayed()
         await this.dropdownMenu.click()
     }
 
-    async clickDropdownMenuOption1(){
+    async clickDropdownMenuOption1() {
         await this.dropdownMenuOption1.waitForDisplayed()
         await this.dropdownMenuOption1.click()
     }
 
-    async clickDropdownMenuOption2(){
+    async clickDropdownMenuOption2() {
         await this.dropdownMenuOption2.waitForDisplayed()
         await this.dropdownMenuOption2.click()
     }
