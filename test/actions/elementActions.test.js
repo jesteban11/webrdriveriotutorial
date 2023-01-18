@@ -1,4 +1,5 @@
 const internetPage = require('../../pages/internet.page');
+const loginData = require('../../data/loginData')
 
 describe('Test element actions', async () => {
     it('Should click element', async () => {
@@ -28,14 +29,14 @@ describe('Test element actions', async () => {
 
     it('Should enter username', async () => {
         await browser.url(`${browser.options.baseUrl}/login`)
-        await internetPage.enterUsername('juanes')
-        expect(await internetPage.username.getValue()).toEqual('juanes')
+        await internetPage.enterUsername(loginData.username)
+        expect(await internetPage.username.getValue()).toEqual(loginData.username)
     })
 
     it('Should enter password', async () => {
         await browser.url(`${browser.options.baseUrl}/login`)
-        await internetPage.enterPassword('Password')
-        expect(await internetPage.password.getValue()).toEqual('Password')
+        await internetPage.enterPassword(loginData.password)
+        expect(await internetPage.password.getValue()).toEqual(loginData.password)
     })
 
     it('Should clear value', async () => {
