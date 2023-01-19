@@ -6,7 +6,8 @@
   "scripts": {
     "test": "wdio",
     "wdio": "wdio run ./wdio.conf.js",
-    "actions": "wdio --suite actions"
+    "actions": "wdio --suite actions",
+    "ownTests": "wdio --suite ownTests"
   },
   "author": "Juan Moncada",
   "license": "ISC",

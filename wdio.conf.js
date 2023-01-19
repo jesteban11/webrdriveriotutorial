@@ -35,6 +35,9 @@ exports.config = {
     suites: {
         actions:[
             './test/actions/*'
+        ],
+        ownTests:[
+            './test/exercise/*'
         ]
     },
     // Patterns to exclude.
