@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Jan 20 16:40:22 GMT 2023","Fri Jan 20 16:40:22 GMT 2023","157","","Write your own tests","","Write your own tests","Logout shows success message","Logout shows success message",""
+"passed","Fri Jan 20 16:40:22 GMT 2023","Fri Jan 20 16:40:22 GMT 2023","340","","Write your own tests","","Write your own tests","Login with invalid credentials shows error","Login with invalid credentials shows error",""
+"passed","Fri Jan 20 16:40:21 GMT 2023","Fri Jan 20 16:40:22 GMT 2023","806","","Write your own tests","","Write your own tests","Login with valid credentials shows success message","Login with valid credentials shows success message",""
