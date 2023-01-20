@@ -1,0 +1,61 @@
+name: Analytics test execution
+
+on:
+  push:
+    branches: [ "test-1" ]
+  pull_request:
+    branches: [ "test-1" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3    
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}        
+    
+    - name: Install npm dependencies
+      run: |
+        npm remove chromedriver --save-dev
+        npm install chromedriver --save-dev
+        
+    - name: Test execution
+      run: |        
+        ENV=qa npm run --suite ownTests
+    - name: Test marketplace action
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      id: allure-report
+      with:
+        allure_results: ./allure-results
+        gh_pages: gh-pages
+        allure_report: ./allure-report
+        #allure_history: allure-history
+        keep_reports: 1      
+
+    - name: Deploy report to github pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history
+
+    - name: Post the link to the report
+      if: always()
+      uses: Sibz/github-status-action@v1
+      with: 
+        authToken: ${{secrets.GITHUB_TOKEN}}
+        context: 'Test report'
+        description: 'Passed'
+        state: 'success'
+        sha: ${{github.event.pull_request.head.sha || github.sha}}
+        target_url: https://jesteban11.github.io/webrdriveriotutorial//${{ github.run_number }}/index.html
