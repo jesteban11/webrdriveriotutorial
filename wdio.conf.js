@@ -39,6 +39,9 @@ exports.config = {
         ],
         ownTests: [
             './test/exercise/*'
+        ],
+        allTests: [
+            './test/*'
         ]
     },
     // Patterns to exclude.

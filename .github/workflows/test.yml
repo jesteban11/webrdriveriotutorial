@@ -29,7 +29,7 @@ jobs:
         
     - name: Test execution
       run: |        
-        ENV=qa npm run --suite ownTests
+        ENV=qa npm run --suite allTests
     - name: Test marketplace action
       uses: simple-elf/allure-report-action@master
       if: always()

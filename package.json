@@ -7,7 +7,8 @@
     "test": "wdio",
     "wdio": "wdio run ./wdio.conf.js",
     "actions": "wdio --suite actions",
-    "ownTests": "wdio --suite ownTests"
+    "ownTests": "wdio --suite ownTests",
+    "allTests": "wdio --suite allTests"
   },
   "author": "Juan Moncada",
   "license": "ISC",
